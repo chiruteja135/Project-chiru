@@ -17,7 +17,7 @@ To master the skills of end-to-end programing of project from creation,integrati
 ## Installation
 1. Clone the repository:
    
-   git clone https://github.com/yourusername/project-chiru.git
+   git clone https://github.com/chiruteja135/project-chiru.git
    cd project-chiru
   Create and activate a virtual environment:
   
