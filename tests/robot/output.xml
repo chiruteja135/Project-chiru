@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-06-24T15:52:35.824068" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Reg Form" source="C:\Users\ycycr\project-chiru\tests\robot\test_reg_form.robot">
+<test id="s1-t1" name="Submit Form With Valid Data" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:52:38.838035" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5000'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-24T15:52:38.838035" elapsed="23.898198"/>
+</kw>
+<kw name="Read Csv Data" owner="csv_reader">
+<msg time="2024-06-24T15:53:02.830609" level="INFO">@{csv_data} = [ ['Aarav Sharma', 'aarav.sharma@example.com', '9876543210', '1995-08-01', 'Mumbai'] | ['Anaya Patel', 'anaya.patel@example.com', '9876543211', '1994-12-11', 'Ahmedabad'] | ['Vivaan Singh', 'vivaan.si...</msg>
+<var>@{csv_data}</var>
+<arg>${CSV_FILE_PATH}</arg>
+<status status="PASS" start="2024-06-24T15:53:02.758173" elapsed="0.072436"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:02.832637" level="INFO">${name} = Aarav Sharma</msg>
+<msg time="2024-06-24T15:53:02.832637" level="INFO">${email} = aarav.sharma@example.com</msg>
+<msg time="2024-06-24T15:53:02.832637" level="INFO">${phone} = 9876543210</msg>
+<msg time="2024-06-24T15:53:02.832637" level="INFO">${dob} = 1995-08-01</msg>
+<msg time="2024-06-24T15:53:02.832637" level="INFO">${hometown} = Mumbai</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:02.831612" elapsed="0.001025"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:02.836624" level="INFO">Name: Aarav Sharma, Email: aarav.sharma@example.com, Phone: 9876543210, DOB: 1995-08-01, Hometown: Mumbai</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:02.834603" elapsed="0.002021"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:02.836624" elapsed="0.710812"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:03.548433" level="INFO">Typing text 'Aarav Sharma' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:03.547436" elapsed="0.628023"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:04.176486" level="INFO">Typing text 'aarav.sharma@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:04.175459" elapsed="0.183594"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:04.360050" level="INFO">Typing text '9876543210' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:04.359053" elapsed="0.157579"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:04.517628" level="INFO">Typing text '1995-08-01' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:04.516632" elapsed="0.119517"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:04.637176" level="INFO">Typing text 'Mumbai' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:04.636149" elapsed="0.128687"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:04.764836" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:04.764836" elapsed="0.711923"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:05.477756" elapsed="0.018952"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:05.900151" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:05.497705" elapsed="0.402446"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:02.832637" elapsed="3.067514"/>
+</kw>
+<var name="${row}">['Aarav Sharma', 'aarav.sharma@example.com', '9876543210', '1995-08-01', 'Mumbai']</var>
+<status status="PASS" start="2024-06-24T15:53:02.831612" elapsed="3.068539"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:05.902145" level="INFO">${name} = Anaya Patel</msg>
+<msg time="2024-06-24T15:53:05.902145" level="INFO">${email} = anaya.patel@example.com</msg>
+<msg time="2024-06-24T15:53:05.902145" level="INFO">${phone} = 9876543211</msg>
+<msg time="2024-06-24T15:53:05.902145" level="INFO">${dob} = 1994-12-11</msg>
+<msg time="2024-06-24T15:53:05.902145" level="INFO">${hometown} = Ahmedabad</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:05.901148" elapsed="0.000997"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:05.905139" level="INFO">Name: Anaya Patel, Email: anaya.patel@example.com, Phone: 9876543211, DOB: 1994-12-11, Hometown: Ahmedabad</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:05.904140" elapsed="0.000999"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:05.905139" elapsed="0.030294"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:05.936428" level="INFO">Typing text 'Anaya Patel' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:05.936428" elapsed="0.221914"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:06.159337" level="INFO">Typing text 'anaya.patel@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.158342" elapsed="0.185497"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:06.344841" level="INFO">Typing text '9876543211' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.343839" elapsed="0.175207"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:06.520043" level="INFO">Typing text '1994-12-11' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.520043" elapsed="0.110706"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:06.631746" level="INFO">Typing text 'Ahmedabad' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.630749" elapsed="0.143617"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:06.775360" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.775360" elapsed="0.098736"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.874096" elapsed="0.016955"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:06.994775" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.892050" elapsed="0.102725"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:05.903143" elapsed="1.091632"/>
+</kw>
+<var name="${row}">['Anaya Patel', 'anaya.patel@example.com', '9876543211', '1994-12-11', 'Ahmedabad']</var>
+<status status="PASS" start="2024-06-24T15:53:05.901148" elapsed="1.093627"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:06.995772" level="INFO">${name} = Vivaan Singh</msg>
+<msg time="2024-06-24T15:53:06.996768" level="INFO">${email} = vivaan.singh@example.com</msg>
+<msg time="2024-06-24T15:53:06.996768" level="INFO">${phone} = 9876543212</msg>
+<msg time="2024-06-24T15:53:06.996768" level="INFO">${dob} = 1992-05-24</msg>
+<msg time="2024-06-24T15:53:06.996768" level="INFO">${hometown} = Delhi</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.995772" elapsed="0.000996"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:06.997766" level="INFO">Name: Vivaan Singh, Email: vivaan.singh@example.com, Phone: 9876543212, DOB: 1992-05-24, Hometown: Delhi</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.997766" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:06.997766" elapsed="0.020944"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:07.018710" level="INFO">Typing text 'Vivaan Singh' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.018710" elapsed="0.152593"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:07.172302" level="INFO">Typing text 'vivaan.singh@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.172302" elapsed="0.163561"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:07.336860" level="INFO">Typing text '9876543212' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.336860" elapsed="0.174533"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:07.513388" level="INFO">Typing text '1992-05-24' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.512390" elapsed="0.124670"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:07.639052" level="INFO">Typing text 'Delhi' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.638055" elapsed="0.131647"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:07.769702" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.769702" elapsed="0.069816"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.839518" elapsed="0.010975"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:07.940315" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.850493" elapsed="0.090848"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:06.996768" elapsed="0.944573"/>
+</kw>
+<var name="${row}">['Vivaan Singh', 'vivaan.singh@example.com', '9876543212', '1992-05-24', 'Delhi']</var>
+<status status="PASS" start="2024-06-24T15:53:06.995772" elapsed="0.945569"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:07.942339" level="INFO">${name} = Diya Gupta</msg>
+<msg time="2024-06-24T15:53:07.942339" level="INFO">${email} = diya.gupta@example.com</msg>
+<msg time="2024-06-24T15:53:07.942339" level="INFO">${phone} = 9876543213</msg>
+<msg time="2024-06-24T15:53:07.942339" level="INFO">${dob} = 1996-03-05</msg>
+<msg time="2024-06-24T15:53:07.942339" level="INFO">${hometown} = Bangalore</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.941341" elapsed="0.000998"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:07.943335" level="INFO">Name: Diya Gupta, Email: diya.gupta@example.com, Phone: 9876543213, DOB: 1996-03-05, Hometown: Bangalore</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.943335" elapsed="0.001002"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.944337" elapsed="0.019914"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:07.965248" level="INFO">Typing text 'Diya Gupta' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:07.964251" elapsed="0.156582"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:08.121829" level="INFO">Typing text 'diya.gupta@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:08.121829" elapsed="0.172539"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:08.295366" level="INFO">Typing text '9876543213' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:08.294368" elapsed="0.175531"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:08.471894" level="INFO">Typing text '1996-03-05' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:08.470897" elapsed="0.109705"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:08.581604" level="INFO">Typing text 'Bangalore' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:08.581604" elapsed="2.931941"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:11.515537" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:11.514540" elapsed="1.121172"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:12.635712" elapsed="0.072341"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:14.233542" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:12.708053" elapsed="1.526501"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:07.943335" elapsed="6.291219"/>
+</kw>
+<var name="${row}">['Diya Gupta', 'diya.gupta@example.com', '9876543213', '1996-03-05', 'Bangalore']</var>
+<status status="PASS" start="2024-06-24T15:53:07.941341" elapsed="6.294183"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:14.236523" level="INFO">${name} = Ayaan Iyer</msg>
+<msg time="2024-06-24T15:53:14.236523" level="INFO">${email} = ayaan.iyer@example.com</msg>
+<msg time="2024-06-24T15:53:14.236523" level="INFO">${phone} = 9876543214</msg>
+<msg time="2024-06-24T15:53:14.236523" level="INFO">${dob} = 1993-07-15</msg>
+<msg time="2024-06-24T15:53:14.236523" level="INFO">${hometown} = Chennai</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:14.235524" elapsed="0.000999"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:14.238545" level="INFO">Name: Ayaan Iyer, Email: ayaan.iyer@example.com, Phone: 9876543214, DOB: 1993-07-15, Hometown: Chennai</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:14.237547" elapsed="0.000998"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:14.238545" elapsed="0.023909"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:14.263482" level="INFO">Typing text 'Ayaan Iyer' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:14.262454" elapsed="0.204638"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:14.467092" level="INFO">Typing text 'ayaan.iyer@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:14.467092" elapsed="0.290937"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:14.759057" level="INFO">Typing text '9876543214' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:14.758029" elapsed="0.152593"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:14.912617" level="INFO">Typing text '1993-07-15' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:14.911620" elapsed="0.113696"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:15.025316" level="INFO">Typing text 'Chennai' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:15.025316" elapsed="0.349915"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:15.376236" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:15.376236" elapsed="0.362368"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:15.739635" elapsed="0.044558"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:15.883961" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:15.784193" elapsed="0.099768"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:14.237547" elapsed="1.647413"/>
+</kw>
+<var name="${row}">['Ayaan Iyer', 'ayaan.iyer@example.com', '9876543214', '1993-07-15', 'Chennai']</var>
+<status status="PASS" start="2024-06-24T15:53:14.235524" elapsed="1.649436"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:15.885987" level="INFO">${name} = Meera Kapoor</msg>
+<msg time="2024-06-24T15:53:15.885987" level="INFO">${email} = meera.kapoor@example.com</msg>
+<msg time="2024-06-24T15:53:15.885987" level="INFO">${phone} = 9876543215</msg>
+<msg time="2024-06-24T15:53:15.885987" level="INFO">${dob} = 1997-01-20</msg>
+<msg time="2024-06-24T15:53:15.885987" level="INFO">${hometown} = Hyderabad</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:15.884960" elapsed="0.001027"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:15.886985" level="INFO">Name: Meera Kapoor, Email: meera.kapoor@example.com, Phone: 9876543215, DOB: 1997-01-20, Hometown: Hyderabad</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:15.886985" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:15.887980" elapsed="0.862918"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:16.756880" level="INFO">Typing text 'Meera Kapoor' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:16.753894" elapsed="0.322502"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:17.077390" level="INFO">Typing text 'meera.kapoor@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:17.077390" elapsed="0.595588"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:17.675977" level="INFO">Typing text '9876543215' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:17.673982" elapsed="0.237213"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:17.914189" level="INFO">Typing text '1997-01-20' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:17.912191" elapsed="0.131225"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:18.044441" level="INFO">Typing text 'Hyderabad' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:18.044441" elapsed="0.147578"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:18.193029" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:18.193029" elapsed="0.072792"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:18.265821" elapsed="0.011968"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:18.421382" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:18.277789" elapsed="0.143593"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:15.885987" elapsed="2.535395"/>
+</kw>
+<var name="${row}">['Meera Kapoor', 'meera.kapoor@example.com', '9876543215', '1997-01-20', 'Hyderabad']</var>
+<status status="PASS" start="2024-06-24T15:53:15.884960" elapsed="2.536422"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:18.422407" level="INFO">${name} = Kian Verma</msg>
+<msg time="2024-06-24T15:53:18.423402" level="INFO">${email} = kian.verma@example.com</msg>
+<msg time="2024-06-24T15:53:18.423402" level="INFO">${phone} = 9876543216</msg>
+<msg time="2024-06-24T15:53:18.423402" level="INFO">${dob} = 1991-09-25</msg>
+<msg time="2024-06-24T15:53:18.423402" level="INFO">${hometown} = Pune</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:18.422407" elapsed="0.000995"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:18.424399" level="INFO">Name: Kian Verma, Email: kian.verma@example.com, Phone: 9876543216, DOB: 1991-09-25, Hometown: Pune</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:18.424399" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:18.424399" elapsed="0.061738"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:18.487132" level="INFO">Typing text 'Kian Verma' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:18.486137" elapsed="0.171010"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:18.658150" level="INFO">Typing text 'kian.verma@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:18.658150" elapsed="0.617542"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:19.276679" level="INFO">Typing text '9876543216' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:19.276679" elapsed="2.449235"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:21.726910" level="INFO">Typing text '1991-09-25' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:21.725914" elapsed="0.142618"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:21.869528" level="INFO">Typing text 'Pune' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:21.868532" elapsed="0.124667"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:21.993199" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:21.993199" elapsed="0.078789"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:22.071988" elapsed="0.040890"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:22.264478" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:22.113890" elapsed="0.150588"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:18.423402" elapsed="3.842068"/>
+</kw>
+<var name="${row}">['Kian Verma', 'kian.verma@example.com', '9876543216', '1991-09-25', 'Pune']</var>
+<status status="PASS" start="2024-06-24T15:53:18.422407" elapsed="3.843063"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:22.266468" level="INFO">${name} = Sara Mehta</msg>
+<msg time="2024-06-24T15:53:22.266468" level="INFO">${email} = sara.mehta@example.com</msg>
+<msg time="2024-06-24T15:53:22.267472" level="INFO">${phone} = 9876543217</msg>
+<msg time="2024-06-24T15:53:22.267472" level="INFO">${dob} = 1995-11-30</msg>
+<msg time="2024-06-24T15:53:22.267472" level="INFO">${hometown} = Kolkata</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:22.266468" elapsed="0.001004"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:22.270462" level="INFO">Name: Sara Mehta, Email: sara.mehta@example.com, Phone: 9876543217, DOB: 1995-11-30, Hometown: Kolkata</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:22.269469" elapsed="0.000993"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:22.270462" elapsed="0.031910"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:22.303371" level="INFO">Typing text 'Sara Mehta' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:22.302372" elapsed="0.150602"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:22.454972" level="INFO">Typing text 'sara.mehta@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:22.452974" elapsed="0.224395"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:22.678366" level="INFO">Typing text '9876543217' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:22.677369" elapsed="0.205450"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:22.883817" level="INFO">Typing text '1995-11-30' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:22.882819" elapsed="0.155587"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:23.039401" level="INFO">Typing text 'Kolkata' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:23.038406" elapsed="0.186501"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:23.226905" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:23.225903" elapsed="0.097739"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:23.323642" elapsed="0.016953"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:23.456776" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:23.340595" elapsed="0.116181"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:22.268463" elapsed="1.188313"/>
+</kw>
+<var name="${row}">['Sara Mehta', 'sara.mehta@example.com', '9876543217', '1995-11-30', 'Kolkata']</var>
+<status status="PASS" start="2024-06-24T15:53:22.265470" elapsed="1.191306"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:23.458770" level="INFO">${name} = Arjun Reddy</msg>
+<msg time="2024-06-24T15:53:23.458770" level="INFO">${email} = arjun.reddy@example.com</msg>
+<msg time="2024-06-24T15:53:23.458770" level="INFO">${phone} = 9876543218</msg>
+<msg time="2024-06-24T15:53:23.458770" level="INFO">${dob} = 1990-06-18</msg>
+<msg time="2024-06-24T15:53:23.458770" level="INFO">${hometown} = Visakhapatnam</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:23.457772" elapsed="0.000998"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:23.461761" level="INFO">Name: Arjun Reddy, Email: arjun.reddy@example.com, Phone: 9876543218, DOB: 1990-06-18, Hometown: Visakhapatnam</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:23.460763" elapsed="0.000998"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:23.462759" elapsed="0.025931"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:23.489689" level="INFO">Typing text 'Arjun Reddy' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:23.489689" elapsed="0.292217"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:23.783901" level="INFO">Typing text 'arjun.reddy@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:23.782903" elapsed="0.266292"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:24.051188" level="INFO">Typing text '9876543218' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.050190" elapsed="0.241354"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:24.292541" level="INFO">Typing text '1990-06-18' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.292541" elapsed="0.144613"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:24.438151" level="INFO">Typing text 'Visakhapatnam' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.437154" elapsed="0.160572"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:24.597726" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.597726" elapsed="0.080784"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.678510" elapsed="0.026928"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:24.797182" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.705438" elapsed="0.091744"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:23.459766" elapsed="1.337416"/>
+</kw>
+<var name="${row}">['Arjun Reddy', 'arjun.reddy@example.com', '9876543218', '1990-06-18', 'Visakhapatnam']</var>
+<status status="PASS" start="2024-06-24T15:53:23.457772" elapsed="1.339410"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-24T15:53:24.798172" level="INFO">${name} = Tara Nair</msg>
+<msg time="2024-06-24T15:53:24.798172" level="INFO">${email} = tara.nair@example.com</msg>
+<msg time="2024-06-24T15:53:24.798172" level="INFO">${phone} = 9876543219</msg>
+<msg time="2024-06-24T15:53:24.798172" level="INFO">${dob} = 1992-10-10</msg>
+<msg time="2024-06-24T15:53:24.798172" level="INFO">${hometown} = Thiruvananthapuram</msg>
+<var>${name}</var>
+<var>${email}</var>
+<var>${phone}</var>
+<var>${dob}</var>
+<var>${hometown}</var>
+<arg>$row</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.798172" elapsed="0.000000"/>
+</kw>
+<kw name="Submit Form With Data">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-24T15:53:24.799172" level="INFO">Name: Tara Nair, Email: tara.nair@example.com, Phone: 9876543219, DOB: 1992-10-10, Hometown: Thiruvananthapuram</msg>
+<arg>Name: ${name}, Email: ${email}, Phone: ${phone}, DOB: ${dob}, Hometown: ${hometown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.799172" elapsed="0.000996"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.800168" elapsed="0.028929"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:24.830098" level="INFO">Typing text 'Tara Nair' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:24.829097" elapsed="0.172533"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:25.003637" level="INFO">Typing text 'tara.nair@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:25.001630" elapsed="0.187502"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:25.191125" level="INFO">Typing text '9876543219' into text field 'id=phone'.</msg>
+<arg>id=phone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:25.190126" elapsed="0.170542"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:25.362664" level="INFO">Typing text '1992-10-10' into text field 'id=dob'.</msg>
+<arg>id=dob</arg>
+<arg>${dob}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:25.362664" elapsed="0.123669"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:25.487330" level="INFO">Typing text 'Thiruvananthapuram' into text field 'id=hometown'.</msg>
+<arg>id=hometown</arg>
+<arg>${hometown}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:25.487330" elapsed="0.323325"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:25.811653" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-24T15:53:25.811653" elapsed="0.191974"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Data submitted successfully</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-24T15:53:26.003627" elapsed="0.026929"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-06-24T15:53:26.158214" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-06-24T15:53:26.030556" elapsed="0.127658"/>
+</kw>
+<arg>${name}</arg>
+<arg>${email}</arg>
+<arg>${phone}</arg>
+<arg>${dob}</arg>
+<arg>${hometown}</arg>
+<status status="PASS" start="2024-06-24T15:53:24.799172" elapsed="1.359042"/>
+</kw>
+<var name="${row}">['Tara Nair', 'tara.nair@example.com', '9876543219', '1992-10-10', 'Thiruvananthapuram']</var>
+<status status="PASS" start="2024-06-24T15:53:24.797182" elapsed="1.362028"/>
+</iter>
+<var>${row}</var>
+<value>@{csv_data}</value>
+<status status="PASS" start="2024-06-24T15:53:02.831612" elapsed="23.327598"/>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-24T15:53:26.160208" elapsed="3.644929"/>
+</kw>
+<status status="PASS" start="2024-06-24T15:52:38.832894" elapsed="50.974395"/>
+</test>
+<status status="PASS" start="2024-06-24T15:52:35.840008" elapsed="53.974119"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test Reg Form">Test Reg Form</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
